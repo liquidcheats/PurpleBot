@@ -34,8 +34,8 @@ library.theme = {
     topcolor2 = Color3.fromRGB(35, 35, 35),
     buttoncolor = Color3.fromRGB(30, 30, 30),
     buttoncolor2 = Color3.fromRGB(20, 20, 20),
-    itemscolor = Color3.fromRGB(126, 72, 163),
-    itemscolor2 = Color3.fromRGB(35, 35, 35)
+    itemscolor = Color3.fromRGB(200, 200, 200),
+    itemscolor2 = Color3.fromRGB(200, 200, 200)
 }
 
 getgenv().Actyrn7104 = "Discord: Actyrn#7104, Server: .gg/wDngb2mv4H"
