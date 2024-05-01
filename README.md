@@ -1,7 +1,7 @@
 # Purplebot
 A Roblox UI Exploit inspired by Splix, BBot, Inoria
 
-Used in the Linoria script hub: https://kyaru.cloud
+Used in the PurpleBot script hub: 
 
 ###### Example Script: 
 * [Get Script](Example.lua)
