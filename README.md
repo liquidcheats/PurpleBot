@@ -6,6 +6,7 @@ Used in the PurpleBot script hub:
 ###### Example Script:
 * [Library Example](Examplem.lua) 
  
+###### Loader:
 * [Get Script](NewMainScript.lua)
 
 ###### Interface Addons:
