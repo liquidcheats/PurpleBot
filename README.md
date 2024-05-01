@@ -3,7 +3,9 @@ A Roblox UI Exploit inspired by Splix, BBot, Inoria
 
 Used in the PurpleBot script hub: 
 
-###### Example Script: 
+###### Example Script:
+* [Library Example](Examplem.lua) 
+ 
 * [Get Script](NewMainScript.lua)
 
 ###### Interface Addons:
