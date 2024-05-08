@@ -3637,7 +3637,7 @@ function library:Notify(text, mode, time, position)
     timeBar.Size = UDim2.new(0, 285, 0, 3)
     timeBar.Position = UDim2.new(0, 0, 1, -3)
     timeBar.BorderSizePixel = 0
-    timeBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    timeBar.BackgroundColor3 = Color3.fromRGB(110, 103, 143)
 
     local barGradient = Instance.new("UIGradient", timeBar)
     barGradient.Rotation = 90
@@ -3650,11 +3650,11 @@ function library:Notify(text, mode, time, position)
     showTween:Play()
 
     if mode == "Success" then
-        timeBar.BackgroundColor3 = Color3.new(126, 72, 163)
+        timeBar.BackgroundColor3 = Color3.new(110, 103, 143)
     elseif mode == "Error" then
-        timeBar.BackgroundColor3 = Color3.new(242, 124, 124)
+        timeBar.BackgroundColor3 = Color3.new(110, 103, 143)
     elseif mode == "Info" then
-        timeBar.BackgroundColor3 = Color3.new(200, 200, 200)
+        timeBar.BackgroundColor3 = Color3.new(110, 103, 143)
     end
 
     local function closeNotify()
