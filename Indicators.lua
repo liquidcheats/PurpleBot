@@ -27,20 +27,21 @@ local UIPadding_8 = Instance.new("UIPadding")
 Indicators.Name = "Indicators"
 Indicators.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 Indicators.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Indicators.ResetOnSpawn = true
 
 Main.Name = "Main"
 Main.Parent = Indicators
-Main.BackgroundColor3 = Color3.fromRGB(10, 10, 12)
-Main.BorderColor3 = Color3.fromRGB(80, 80, 80)
-Main.BorderSizePixel = 0
+Main.BackgroundColor3 = Color3.fromRGB(14, 14, 15)
+Main.BorderColor3 = Color3.fromRGB(30, 30, 30)
+Main.BorderSizePixel = 1.1
 Main.Position = UDim2.new(0.00866823643, 0, 0.177922934, 0)
 Main.Size = UDim2.new(0, 249, 0, 190)
 
 ChildMain.Name = "ChildMain"
 ChildMain.Parent = Main
 ChildMain.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-ChildMain.BorderColor3 = Color3.fromRGB(80, 80, 80)
-ChildMain.BorderSizePixel = 0
+ChildMain.BorderColor3 = Color3.fromRGB(38, 38, 38)
+ChildMain.BorderSizePixel = 1.1
 ChildMain.Position = UDim2.new(0.0281125102, 0, 0.117292702, 0)
 ChildMain.Size = UDim2.new(0, 235, 0, 136)
 
