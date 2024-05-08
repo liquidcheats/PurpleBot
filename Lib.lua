@@ -3643,7 +3643,7 @@ function library:Notify(text, mode, time, position)
     barGradient.Rotation = 90
     barGradient.Color = ColorSequence.new({
         ColorSequenceKeypoint.new(0, Color3.fromRGB(157, 133, 252)),
-        ColorSequenceKeypoint.new(1, Color3.fromRGB(126, 72, 163))
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(110, 103, 143))
     })
 
     local showTween = tweenservice:Create(notifyFrame, TweenInfo.new(0.5), { Position = UDim2.new(0, position.X, position.Y, 0) })
