@@ -39,6 +39,7 @@ library.theme = {
     itemscolor2 = Color3.fromRGB(255, 255, 255)
 }
 
+-- credit for elegant sorry i modded ur lib
 getgenv().Actyrn7104 = "Discord: Actyrn#7104, Server: .gg/wDngb2mv4H"
 
 if library.theme.cursor then
