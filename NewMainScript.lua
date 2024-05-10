@@ -47,7 +47,7 @@ local Lighting = game:GetService("Lighting")
 local TargetPlr, CamlockPlr
 local LocalPlr = Players.LocalPlayer
 
-local SetMenuName = "Purple bot | Priv"
+local SetMenuName = "Purple bot | atzlazyblue"
 local GameId = game.PlaceId
 local Menubind = Enum.KeyCode.V
 
