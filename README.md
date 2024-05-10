@@ -7,7 +7,7 @@ Used in the PurpleBot script hub:
 * [Library Example](Examplem.lua) 
  
 ###### Loader:
-* [Get Script](NewMainScript.lua)
+* [Get Script](Loader.lua)
 
 ###### Interface Addons:
 * [Theme Manager](addons/ThemeManager.lua)&nbsp;&nbsp;|&nbsp;&nbsp;[Save Manager](addons/SaveManager.lua) 
