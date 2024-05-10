@@ -20,6 +20,7 @@ Used in the PurpleBot script hub:
 - AutoFarm, (More)
 
 ## Interface Preview
+> note this an outdated picture
 <img src="https://i.imgur.com/wb6q98H.jpeg" />
 
 ## Contributors
