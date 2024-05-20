@@ -592,41 +592,6 @@ end, "AllowNotify")
 
 -- TaskSpawn Functions
 
-while true do -- i skidded this sorry bcuz i dont know to make part esp ):
-    task.wait(1)
-
-    for _, Folder in ipairs(Workspace.Ores:GetChildren()) do
-        for _, Ore in ipairs(Folder:GetChildren()) do
-            if Ore:FindFirstChild("Base") and Ore:FindFirstChild("Part") then
-                local Box = ESP:GetBox(Ore)
-
-                if not Box then
-                    local CustomName = ""
-                    local Stuff = Ore.Part:GetChildren()
-                    for i, V in ipairs(Stuff) do
-                        CustomName = CustomName .. V.Name
-                        if i ~= #Stuff then
-                            CustomName = CustomName .. "|"
-                        end
-                    end
-
-                    ESP:Add(Ore, {
-                        Name = CustomName,
-                        PrimaryPart = Ore.Base,
-                        Color = Color3.fromRGB(110, 255, 200),
-                        IsEnabled = function()
-                            if ESP.Ores and Ore:FindFirstChild("Base") and Player:DistanceFromCharacter(Ore.Base.Position) <= 50 then
-                                return true
-                            end
-                            return false
-                        end
-                    })
-                end
-            end
-        end
-    end
-end
-
 -- HeartBeat Functions
 
 RunService.Heartbeat:Connect(function()
@@ -1137,15 +1102,15 @@ RunService.Heartbeat:Connect(function()
 	end
 end)
 
--- RenderStepped Functions
-
-RunService.RenderStepped:Connect(function()
+RunService.Heartbeat:Connect(function()
     if Rage2.AutoParryEnabled then
         game:GetService("ReplicatedStorage").Remotes.Block:FireServer(true)
     end
 end)
 
-RunService.Stepped:Connect(function()
+-- RenderStepped Functions
+
+RunService.RenderStepped:Connect(function()
     if Misc.AutoDepositEnabled then
     
         if Misc.DepositWhenMode == "Strict" then
