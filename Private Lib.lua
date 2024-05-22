@@ -43,15 +43,34 @@ local UICorner_4 = Instance.new("UICorner")
 local Title_2 = Instance.new("TextLabel")
 local UICorner_5 = Instance.new("UICorner")
 local UIPadding_4 = Instance.new("UIPadding")
-local ToggleVisible = Instance.new("TextButton")
-local TextButton = Instance.new("TextButton")
+local ToggleVisibleCombat = Instance.new("TextButton")
+local Items = Instance.new("Folder")
+local AimAissist = Instance.new("TextButton")
 local UIPadding_5 = Instance.new("UIPadding")
+local AutoCilcker = Instance.new("TextButton")
+local UIPadding_6 = Instance.new("UIPadding")
+local Reach = Instance.new("TextButton")
+local UIPadding_7 = Instance.new("UIPadding")
+local Walkspeed = Instance.new("TextButton")
+local UIPadding_8 = Instance.new("UIPadding")
+local Velocity = Instance.new("TextButton")
+local UIPadding_9 = Instance.new("UIPadding")
+local DTap = Instance.new("TextButton")
+local UIPadding_10 = Instance.new("UIPadding")
+local blatant = Instance.new("Frame")
+local UICorner_6 = Instance.new("UICorner")
+local Title_3 = Instance.new("TextLabel")
+local UICorner_7 = Instance.new("UICorner")
+local UIPadding_11 = Instance.new("UIPadding")
+local ToggleVisibleBlatant = Instance.new("TextButton")
+local Items_2 = Instance.new("Folder")
 
 --Properties:
 
 Restless.Name = "Restless"
 Restless.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 Restless.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Restless.ResetOnSpawn = false
 
 open.Name = "open"
 open.Parent = Restless
@@ -272,9 +291,9 @@ type2_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 type2_5.BackgroundTransparency = 1.000
 type2_5.BorderColor3 = Color3.fromRGB(0, 0, 0)
 type2_5.BorderSizePixel = 0
-type2_5.Position = UDim2.new(-0.304347813, 0, 0.222222224, 0)
-type2_5.Size = UDim2.new(0, 15, 0, 14)
-type2_5.Image = "rbxassetid://17574112444"
+type2_5.Position = UDim2.new(-0.405797094, 0, 0.0370370373, 0)
+type2_5.Size = UDim2.new(0, 28, 0, 24)
+type2_5.Image = "http://www.roblox.com/asset/?id=13321848320"
 
 openfriends.Name = "openfriends"
 openfriends.Parent = Title
@@ -432,8 +451,9 @@ combat.Parent = Restless
 combat.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
 combat.BorderColor3 = Color3.fromRGB(0, 0, 0)
 combat.BorderSizePixel = 0
-combat.Position = UDim2.new(0.149274364, 0, 0.0235732011, 0)
-combat.Size = UDim2.new(0, 188, 0, 461)
+combat.Position = UDim2.new(0.116190389, 0, 0.0235732011, 0)
+combat.Size = UDim2.new(0, 188, 0, 320)
+combat.ZIndex = 2
 
 UICorner_4.Parent = combat
 
@@ -443,7 +463,7 @@ Title_2.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 Title_2.BackgroundTransparency = 1.000
 Title_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Title_2.BorderSizePixel = 0
-Title_2.Size = UDim2.new(0, 164, 0, 27)
+Title_2.Size = UDim2.new(0, 188, 0, 27)
 Title_2.ZIndex = 2
 Title_2.Font = Enum.Font.ArialBold
 Title_2.Text = "Combat"
@@ -462,43 +482,211 @@ UIPadding_4.PaddingLeft = UDim.new(0, 4)
 UIPadding_4.PaddingRight = UDim.new(0, 4)
 UIPadding_4.PaddingTop = UDim.new(0, 4)
 
-ToggleVisible.Name = "ToggleVisible"
-ToggleVisible.Parent = combat
-ToggleVisible.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ToggleVisible.BackgroundTransparency = 1.000
-ToggleVisible.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ToggleVisible.BorderSizePixel = 0
-ToggleVisible.Position = UDim2.new(0.872340441, 0, 0.0130151846, 0)
-ToggleVisible.Size = UDim2.new(0, 24, 0, 15)
-ToggleVisible.Font = Enum.Font.SourceSans
-ToggleVisible.Text = "▲"
-ToggleVisible.TextColor3 = Color3.fromRGB(255, 255, 255)
-ToggleVisible.TextSize = 14.000
-ToggleVisible.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+ToggleVisibleCombat.Name = "ToggleVisibleCombat"
+ToggleVisibleCombat.Parent = Title_2
+ToggleVisibleCombat.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ToggleVisibleCombat.BackgroundTransparency = 1.000
+ToggleVisibleCombat.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ToggleVisibleCombat.BorderSizePixel = 0
+ToggleVisibleCombat.Position = UDim2.new(0.872340441, 0, 0.0130151846, 0)
+ToggleVisibleCombat.Size = UDim2.new(0, 24, 0, 15)
+ToggleVisibleCombat.Font = Enum.Font.SourceSans
+ToggleVisibleCombat.Text = "▲"
+ToggleVisibleCombat.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleVisibleCombat.TextSize = 14.000
+ToggleVisibleCombat.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
 
-TextButton.Parent = combat
-TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextButton.BackgroundTransparency = 1.000
-TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextButton.BorderSizePixel = 0
-TextButton.Position = UDim2.new(0.0212765951, 0, 0.0585683286, 0)
-TextButton.Size = UDim2.new(0, 179, 0, 25)
-TextButton.Font = Enum.Font.Arial
-TextButton.Text = "Aim Aissist"
-TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextButton.TextSize = 19.000
-TextButton.TextWrapped = true
-TextButton.TextXAlignment = Enum.TextXAlignment.Left
+Items.Name = "Items"
+Items.Parent = combat
 
-UIPadding_5.Parent = TextButton
+AimAissist.Name = "AimAissist"
+AimAissist.Parent = Items
+AimAissist.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AimAissist.BackgroundTransparency = 1.000
+AimAissist.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AimAissist.BorderSizePixel = 0
+AimAissist.Position = UDim2.new(0.0212765951, 0, 0.0894984007, 0)
+AimAissist.Size = UDim2.new(0, 179, 0, 25)
+AimAissist.ZIndex = 3
+AimAissist.Font = Enum.Font.Arial
+AimAissist.Text = "Aim Aissist"
+AimAissist.TextColor3 = Color3.fromRGB(255, 255, 255)
+AimAissist.TextSize = 19.000
+AimAissist.TextWrapped = true
+AimAissist.TextXAlignment = Enum.TextXAlignment.Left
+
+UIPadding_5.Parent = AimAissist
 UIPadding_5.PaddingBottom = UDim.new(0, 1)
 UIPadding_5.PaddingLeft = UDim.new(0, 1)
 UIPadding_5.PaddingRight = UDim.new(0, 1)
 UIPadding_5.PaddingTop = UDim.new(0, 1)
 
+AutoCilcker.Name = "AutoCilcker"
+AutoCilcker.Parent = Items
+AutoCilcker.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AutoCilcker.BackgroundTransparency = 1.000
+AutoCilcker.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AutoCilcker.BorderSizePixel = 0
+AutoCilcker.Position = UDim2.new(0.0212765951, 0, 0.175347477, 0)
+AutoCilcker.Size = UDim2.new(0, 179, 0, 25)
+AutoCilcker.ZIndex = 3
+AutoCilcker.Font = Enum.Font.Arial
+AutoCilcker.Text = "Auto Clicker"
+AutoCilcker.TextColor3 = Color3.fromRGB(255, 255, 255)
+AutoCilcker.TextSize = 19.000
+AutoCilcker.TextWrapped = true
+AutoCilcker.TextXAlignment = Enum.TextXAlignment.Left
+
+UIPadding_6.Parent = AutoCilcker
+UIPadding_6.PaddingBottom = UDim.new(0, 1)
+UIPadding_6.PaddingLeft = UDim.new(0, 1)
+UIPadding_6.PaddingRight = UDim.new(0, 1)
+UIPadding_6.PaddingTop = UDim.new(0, 1)
+
+Reach.Name = "Reach"
+Reach.Parent = Items
+Reach.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Reach.BackgroundTransparency = 1.000
+Reach.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Reach.BorderSizePixel = 0
+Reach.Position = UDim2.new(0.0212765951, 0, 0.259035766, 0)
+Reach.Size = UDim2.new(0, 179, 0, 25)
+Reach.ZIndex = 3
+Reach.Font = Enum.Font.Arial
+Reach.Text = "Reach"
+Reach.TextColor3 = Color3.fromRGB(255, 255, 255)
+Reach.TextSize = 19.000
+Reach.TextWrapped = true
+Reach.TextXAlignment = Enum.TextXAlignment.Left
+
+UIPadding_7.Parent = Reach
+UIPadding_7.PaddingBottom = UDim.new(0, 1)
+UIPadding_7.PaddingLeft = UDim.new(0, 1)
+UIPadding_7.PaddingRight = UDim.new(0, 1)
+UIPadding_7.PaddingTop = UDim.new(0, 1)
+
+Walkspeed.Name = "Walkspeed"
+Walkspeed.Parent = Items
+Walkspeed.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Walkspeed.BackgroundTransparency = 1.000
+Walkspeed.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Walkspeed.BorderSizePixel = 0
+Walkspeed.Position = UDim2.new(0.0212765951, 0, 0.338634878, 0)
+Walkspeed.Size = UDim2.new(0, 179, 0, 25)
+Walkspeed.ZIndex = 3
+Walkspeed.Font = Enum.Font.Arial
+Walkspeed.Text = "Walkspeed"
+Walkspeed.TextColor3 = Color3.fromRGB(255, 255, 255)
+Walkspeed.TextSize = 19.000
+Walkspeed.TextWrapped = true
+Walkspeed.TextXAlignment = Enum.TextXAlignment.Left
+
+UIPadding_8.Parent = Walkspeed
+UIPadding_8.PaddingBottom = UDim.new(0, 1)
+UIPadding_8.PaddingLeft = UDim.new(0, 1)
+UIPadding_8.PaddingRight = UDim.new(0, 1)
+UIPadding_8.PaddingTop = UDim.new(0, 1)
+
+Velocity.Name = "Velocity"
+Velocity.Parent = Items
+Velocity.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Velocity.BackgroundTransparency = 1.000
+Velocity.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Velocity.BorderSizePixel = 0
+Velocity.Position = UDim2.new(0.0212765951, 0, 0.427685082, 0)
+Velocity.Size = UDim2.new(0, 179, 0, 25)
+Velocity.ZIndex = 3
+Velocity.Font = Enum.Font.Arial
+Velocity.Text = "Velocity"
+Velocity.TextColor3 = Color3.fromRGB(255, 255, 255)
+Velocity.TextSize = 19.000
+Velocity.TextWrapped = true
+Velocity.TextXAlignment = Enum.TextXAlignment.Left
+
+UIPadding_9.Parent = Velocity
+UIPadding_9.PaddingBottom = UDim.new(0, 1)
+UIPadding_9.PaddingLeft = UDim.new(0, 1)
+UIPadding_9.PaddingRight = UDim.new(0, 1)
+UIPadding_9.PaddingTop = UDim.new(0, 1)
+
+DTap.Name = "DTap"
+DTap.Parent = Items
+DTap.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+DTap.BackgroundTransparency = 1.000
+DTap.BorderColor3 = Color3.fromRGB(0, 0, 0)
+DTap.BorderSizePixel = 0
+DTap.Position = UDim2.new(0.0212765951, 0, 0.510485291, 0)
+DTap.Size = UDim2.new(0, 179, 0, 25)
+DTap.ZIndex = 3
+DTap.Font = Enum.Font.Arial
+DTap.Text = "DTap"
+DTap.TextColor3 = Color3.fromRGB(255, 255, 255)
+DTap.TextSize = 19.000
+DTap.TextWrapped = true
+DTap.TextXAlignment = Enum.TextXAlignment.Left
+
+UIPadding_10.Parent = DTap
+UIPadding_10.PaddingBottom = UDim.new(0, 1)
+UIPadding_10.PaddingLeft = UDim.new(0, 1)
+UIPadding_10.PaddingRight = UDim.new(0, 1)
+UIPadding_10.PaddingTop = UDim.new(0, 1)
+
+blatant.Name = "blatant"
+blatant.Parent = Restless
+blatant.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+blatant.BorderColor3 = Color3.fromRGB(0, 0, 0)
+blatant.BorderSizePixel = 0
+blatant.Position = UDim2.new(0.2188963, 0, 0.0235732011, 0)
+blatant.Size = UDim2.new(0, 188, 0, 572)
+blatant.ZIndex = 2
+
+UICorner_6.Parent = blatant
+
+Title_3.Name = "Title"
+Title_3.Parent = blatant
+Title_3.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Title_3.BackgroundTransparency = 1.000
+Title_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Title_3.BorderSizePixel = 0
+Title_3.Size = UDim2.new(0, 188, 0, 27)
+Title_3.ZIndex = 2
+Title_3.Font = Enum.Font.ArialBold
+Title_3.Text = "Blatant"
+Title_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title_3.TextScaled = true
+Title_3.TextSize = 24.000
+Title_3.TextWrapped = true
+Title_3.TextXAlignment = Enum.TextXAlignment.Left
+Title_3.TextYAlignment = Enum.TextYAlignment.Top
+
+UICorner_7.Parent = Title_3
+
+UIPadding_11.Parent = Title_3
+UIPadding_11.PaddingBottom = UDim.new(0, 4)
+UIPadding_11.PaddingLeft = UDim.new(0, 4)
+UIPadding_11.PaddingRight = UDim.new(0, 4)
+UIPadding_11.PaddingTop = UDim.new(0, 4)
+
+ToggleVisibleBlatant.Name = "ToggleVisibleBlatant"
+ToggleVisibleBlatant.Parent = Title_3
+ToggleVisibleBlatant.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ToggleVisibleBlatant.BackgroundTransparency = 1.000
+ToggleVisibleBlatant.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ToggleVisibleBlatant.BorderSizePixel = 0
+ToggleVisibleBlatant.Position = UDim2.new(0.872340441, 0, 0.0130151846, 0)
+ToggleVisibleBlatant.Size = UDim2.new(0, 24, 0, 15)
+ToggleVisibleBlatant.Font = Enum.Font.SourceSans
+ToggleVisibleBlatant.Text = "▲"
+ToggleVisibleBlatant.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleVisibleBlatant.TextSize = 14.000
+ToggleVisibleBlatant.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+
+Items_2.Name = "Items"
+Items_2.Parent = blatant
+
 -- Scripts:
 
-local function VZSOUKN_fake_script() -- open.DragGui 
+local function HYMHY_fake_script() -- open.DragGui 
 	local script = Instance.new('LocalScript', open)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -555,8 +743,19 @@ local function VZSOUKN_fake_script() -- open.DragGui
 	
 	runService.Heartbeat:Connect(Update)
 end
-coroutine.wrap(VZSOUKN_fake_script)()
-local function WJYFSD_fake_script() -- combat.DragGui 
+coroutine.wrap(HYMHY_fake_script)()
+local function MTGSQMG_fake_script() -- ToggleVisibleCombat.ToggleSize 
+	local script = Instance.new('LocalScript', ToggleVisibleCombat)
+
+	ToggleVisibleCombat.MouseButton1Click:Connect(function()
+		local isCombatVisible = true
+		isCombatVisible = not isCombatVisible
+		combat.Visible = isCombatVisible
+		ToggleVisibleCombat.Text = isCombatVisible and "▲" or "▼"
+	end)
+end
+coroutine.wrap(MTGSQMG_fake_script)()
+local function DLDGT_fake_script() -- combat.DragGui 
 	local script = Instance.new('LocalScript', combat)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -613,4 +812,125 @@ local function WJYFSD_fake_script() -- combat.DragGui
 	
 	runService.Heartbeat:Connect(Update)
 end
-coroutine.wrap(WJYFSD_fake_script)()
+coroutine.wrap(DLDGT_fake_script)()
+local function GAMK_fake_script() -- AimAissist.ToggleAimAissist 
+	local script = Instance.new('LocalScript', AimAissist)
+
+	
+end
+coroutine.wrap(GAMK_fake_script)()
+local function MDMYYSQ_fake_script() -- AutoCilcker.ToggleAutoClicker 
+	local script = Instance.new('LocalScript', AutoCilcker)
+
+	print("Hello world!")
+	
+end
+coroutine.wrap(MDMYYSQ_fake_script)()
+local function EGRV_fake_script() -- Reach.ToggleReach 
+	local script = Instance.new('LocalScript', Reach)
+
+	print("Hello world!")
+	
+end
+coroutine.wrap(EGRV_fake_script)()
+local function QGNI_fake_script() -- Walkspeed.ToggleWalkspeed 
+	local script = Instance.new('LocalScript', Walkspeed)
+
+	print("Hello world!")
+	
+end
+coroutine.wrap(QGNI_fake_script)()
+local function UGJEU_fake_script() -- Velocity.ToggleVelocity 
+	local script = Instance.new('LocalScript', Velocity)
+
+	print("Hello world!")
+	
+end
+coroutine.wrap(UGJEU_fake_script)()
+local function YAZCASA_fake_script() -- DTap.ToggleDTap 
+	local script = Instance.new('LocalScript', DTap)
+
+	print("Hello world!")
+	
+end
+coroutine.wrap(YAZCASA_fake_script)()
+local function EKAMJJK_fake_script() -- Restless.togglegui 
+	local script = Instance.new('LocalScript', Restless)
+
+	game:GetService("UserInputService").InputBegan:Connect(function(input)
+		if input.KeyCode == Enum.KeyCode.LeftShift then
+			local gui = game.Players.LocalPlayer.PlayerGui.Restless
+			gui.Enabled = not gui.Enabled
+		end
+	end)
+end
+coroutine.wrap(EKAMJJK_fake_script)()
+local function GFBROQ_fake_script() -- ToggleVisibleBlatant.ToggleSize 
+	local script = Instance.new('LocalScript', ToggleVisibleBlatant)
+
+	ToggleVisibleCombat.MouseButton1Click:Connect(function()
+		local isBlatantVisisble = true
+		isBlatantVisisble = not isBlatantVisisble
+		blatant.Visible = isBlatantVisisble
+		ToggleVisibleBlatant.Text = isBlatantVisisble and "▲" or "▼"
+	end)
+end
+coroutine.wrap(GFBROQ_fake_script)()
+local function CJZBPWI_fake_script() -- blatant.DragGui 
+	local script = Instance.new('LocalScript', blatant)
+
+	local UserInputService = game:GetService("UserInputService")
+	local runService = (game:GetService("RunService"));
+	
+	local gui = script.Parent
+	
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+	
+	function Lerp(a, b, m)
+		return a + (b - a) * m
+	end;
+	
+	local lastMousePos
+	local lastGoalPos
+	local DRAG_SPEED = (11); -- // The speed of the UI darg.
+	function Update(dt)
+		if not (startPos) then return end;
+		if not (dragging) and (lastGoalPos) then
+			gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, lastGoalPos.X.Offset, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, lastGoalPos.Y.Offset, dt * DRAG_SPEED))
+			return 
+		end;
+	
+		local delta = (lastMousePos - UserInputService:GetMouseLocation())
+		local xGoal = (startPos.X.Offset - delta.X);
+		local yGoal = (startPos.Y.Offset - delta.Y);
+		lastGoalPos = UDim2.new(startPos.X.Scale, xGoal, startPos.Y.Scale, yGoal)
+		gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, xGoal, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, yGoal, dt * DRAG_SPEED))
+	end;
+	
+	gui.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.Position
+			lastMousePos = UserInputService:GetMouseLocation()
+	
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	
+	gui.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	
+	runService.Heartbeat:Connect(Update)
+end
+coroutine.wrap(CJZBPWI_fake_script)()
