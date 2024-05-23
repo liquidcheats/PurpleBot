@@ -1,7 +1,36 @@
--- Gui to Lua
--- Version: 3.2
+__ = 
 
--- Instances:
+	"Discord :  atzlazyblue#, Server : .gg/"
+
+-- Credit to to atzlazyblue, the original script coders
+
+-- if your gonna Showcase don't directly put the source code
+
+-- DO NOT EDIT BELOW IF YOU DON'T KNOW WHAT YOU'RE DOING!!
+
+-- there to many fucking bug and glitches :cry:
+
+repeat wait() until game:IsLoaded()
+
+Drawing = Drawing
+setfpscap = setfpscap
+syn = syn
+mousemoverel = mousemove
+hookmetamethod = hookmetamethod
+newcclosure = newcclosure
+getnamecallmethod = getnamecallmethod
+
+-- Variable
+
+local DragSpeed = 18
+
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+
+local player = game.Players.LocalPlayer
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local Mouse = LocalPlayer:GetMouse()
 
 local Restless = Instance.new("ScreenGui")
 local open = Instance.new("Frame")
@@ -45,7 +74,11 @@ local UICorner_5 = Instance.new("UICorner")
 local UIPadding_4 = Instance.new("UIPadding")
 local ToggleVisibleCombat = Instance.new("TextButton")
 local Items = Instance.new("Folder")
+
 local AimAissist = Instance.new("TextButton")
+local Prediction = Instance.new("TextBox")
+local AimAssistSpeed = Instance.new("TextBox")
+
 local UIPadding_5 = Instance.new("UIPadding")
 local AutoCilcker = Instance.new("TextButton")
 local UIPadding_6 = Instance.new("UIPadding")
@@ -65,7 +98,9 @@ local UIPadding_11 = Instance.new("UIPadding")
 local ToggleVisibleBlatant = Instance.new("TextButton")
 local Items_2 = Instance.new("Folder")
 
---Properties:
+-- Functions
+
+-- Properties
 
 Restless.Name = "Restless"
 Restless.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -116,7 +151,7 @@ opencombat.Position = UDim2.new(0.166666672, 0, 1.81100464, 0)
 opencombat.Size = UDim2.new(0, 69, 0, 27)
 opencombat.Font = Enum.Font.Arial
 opencombat.Text = "Combat"
-opencombat.TextColor3 = Color3.fromRGB(184, 184, 184)
+opencombat.TextColor3 = Color3.fromRGB(255, 255, 255)
 opencombat.TextSize = 18.000
 opencombat.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -510,7 +545,7 @@ AimAissist.Size = UDim2.new(0, 179, 0, 25)
 AimAissist.ZIndex = 3
 AimAissist.Font = Enum.Font.Arial
 AimAissist.Text = "Aim Aissist"
-AimAissist.TextColor3 = Color3.fromRGB(255, 255, 255)
+AimAissist.TextColor3 = Color3.fromRGB(184, 184, 184)
 AimAissist.TextSize = 19.000
 AimAissist.TextWrapped = true
 AimAissist.TextXAlignment = Enum.TextXAlignment.Left
@@ -532,7 +567,7 @@ AutoCilcker.Size = UDim2.new(0, 179, 0, 25)
 AutoCilcker.ZIndex = 3
 AutoCilcker.Font = Enum.Font.Arial
 AutoCilcker.Text = "Auto Clicker"
-AutoCilcker.TextColor3 = Color3.fromRGB(255, 255, 255)
+AutoCilcker.TextColor3 = Color3.fromRGB(184, 184, 184)
 AutoCilcker.TextSize = 19.000
 AutoCilcker.TextWrapped = true
 AutoCilcker.TextXAlignment = Enum.TextXAlignment.Left
@@ -554,7 +589,7 @@ Reach.Size = UDim2.new(0, 179, 0, 25)
 Reach.ZIndex = 3
 Reach.Font = Enum.Font.Arial
 Reach.Text = "Reach"
-Reach.TextColor3 = Color3.fromRGB(255, 255, 255)
+Reach.TextColor3 = Color3.fromRGB(184, 184, 184)
 Reach.TextSize = 19.000
 Reach.TextWrapped = true
 Reach.TextXAlignment = Enum.TextXAlignment.Left
@@ -576,7 +611,7 @@ Walkspeed.Size = UDim2.new(0, 179, 0, 25)
 Walkspeed.ZIndex = 3
 Walkspeed.Font = Enum.Font.Arial
 Walkspeed.Text = "Walkspeed"
-Walkspeed.TextColor3 = Color3.fromRGB(255, 255, 255)
+Walkspeed.TextColor3 = Color3.fromRGB(184, 184, 184)
 Walkspeed.TextSize = 19.000
 Walkspeed.TextWrapped = true
 Walkspeed.TextXAlignment = Enum.TextXAlignment.Left
@@ -598,7 +633,7 @@ Velocity.Size = UDim2.new(0, 179, 0, 25)
 Velocity.ZIndex = 3
 Velocity.Font = Enum.Font.Arial
 Velocity.Text = "Velocity"
-Velocity.TextColor3 = Color3.fromRGB(255, 255, 255)
+Velocity.TextColor3 = Color3.fromRGB(184, 184, 184)
 Velocity.TextSize = 19.000
 Velocity.TextWrapped = true
 Velocity.TextXAlignment = Enum.TextXAlignment.Left
@@ -620,7 +655,7 @@ DTap.Size = UDim2.new(0, 179, 0, 25)
 DTap.ZIndex = 3
 DTap.Font = Enum.Font.Arial
 DTap.Text = "DTap"
-DTap.TextColor3 = Color3.fromRGB(255, 255, 255)
+DTap.TextColor3 = Color3.fromRGB(184, 184, 184)
 DTap.TextSize = 19.000
 DTap.TextWrapped = true
 DTap.TextXAlignment = Enum.TextXAlignment.Left
@@ -684,253 +719,360 @@ ToggleVisibleBlatant.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
 Items_2.Name = "Items"
 Items_2.Parent = blatant
 
--- Scripts:
+-- Gui Functions
 
-local function HYMHY_fake_script() -- open.DragGui 
-	local script = Instance.new('LocalScript', open)
+coroutine.wrap(function()
+    local script = Instance.new('LocalScript', open)
 
-	local UserInputService = game:GetService("UserInputService")
-	local runService = (game:GetService("RunService"));
-	
-	local gui = script.Parent
-	
-	local dragging
-	local dragInput
-	local dragStart
-	local startPos
-	
-	function Lerp(a, b, m)
-		return a + (b - a) * m
-	end;
-	
-	local lastMousePos
-	local lastGoalPos
-	local DRAG_SPEED = (11); -- // The speed of the UI darg.
-	function Update(dt)
-		if not (startPos) then return end;
-		if not (dragging) and (lastGoalPos) then
-			gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, lastGoalPos.X.Offset, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, lastGoalPos.Y.Offset, dt * DRAG_SPEED))
-			return 
-		end;
-	
-		local delta = (lastMousePos - UserInputService:GetMouseLocation())
-		local xGoal = (startPos.X.Offset - delta.X);
-		local yGoal = (startPos.Y.Offset - delta.Y);
-		lastGoalPos = UDim2.new(startPos.X.Scale, xGoal, startPos.Y.Scale, yGoal)
-		gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, xGoal, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, yGoal, dt * DRAG_SPEED))
-	end;
-	
-	gui.InputBegan:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-			dragging = true
-			dragStart = input.Position
-			startPos = gui.Position
-			lastMousePos = UserInputService:GetMouseLocation()
-	
-			input.Changed:Connect(function()
-				if input.UserInputState == Enum.UserInputState.End then
-					dragging = false
-				end
-			end)
-		end
-	end)
-	
-	gui.InputChanged:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-			dragInput = input
-		end
-	end)
-	
-	runService.Heartbeat:Connect(Update)
-end
-coroutine.wrap(HYMHY_fake_script)()
-local function MTGSQMG_fake_script() -- ToggleVisibleCombat.ToggleSize 
-	local script = Instance.new('LocalScript', ToggleVisibleCombat)
+    local UserInputService = game:GetService("UserInputService")
+    local RunService = game:GetService("RunService")
 
-	ToggleVisibleCombat.MouseButton1Click:Connect(function()
-		local isCombatVisible = true
-		isCombatVisible = not isCombatVisible
-		combat.Visible = isCombatVisible
-		ToggleVisibleCombat.Text = isCombatVisible and "▲" or "▼"
-	end)
-end
-coroutine.wrap(MTGSQMG_fake_script)()
-local function DLDGT_fake_script() -- combat.DragGui 
-	local script = Instance.new('LocalScript', combat)
+    local gui = script.Parent
 
-	local UserInputService = game:GetService("UserInputService")
-	local runService = (game:GetService("RunService"));
-	
-	local gui = script.Parent
-	
-	local dragging
-	local dragInput
-	local dragStart
-	local startPos
-	
-	function Lerp(a, b, m)
-		return a + (b - a) * m
-	end;
-	
-	local lastMousePos
-	local lastGoalPos
-	local DRAG_SPEED = (11); -- // The speed of the UI darg.
-	function Update(dt)
-		if not (startPos) then return end;
-		if not (dragging) and (lastGoalPos) then
-			gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, lastGoalPos.X.Offset, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, lastGoalPos.Y.Offset, dt * DRAG_SPEED))
-			return 
-		end;
-	
-		local delta = (lastMousePos - UserInputService:GetMouseLocation())
-		local xGoal = (startPos.X.Offset - delta.X);
-		local yGoal = (startPos.Y.Offset - delta.Y);
-		lastGoalPos = UDim2.new(startPos.X.Scale, xGoal, startPos.Y.Scale, yGoal)
-		gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, xGoal, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, yGoal, dt * DRAG_SPEED))
-	end;
-	
-	gui.InputBegan:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-			dragging = true
-			dragStart = input.Position
-			startPos = gui.Position
-			lastMousePos = UserInputService:GetMouseLocation()
-	
-			input.Changed:Connect(function()
-				if input.UserInputState == Enum.UserInputState.End then
-					dragging = false
-				end
-			end)
-		end
-	end)
-	
-	gui.InputChanged:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-			dragInput = input
-		end
-	end)
-	
-	runService.Heartbeat:Connect(Update)
-end
-coroutine.wrap(DLDGT_fake_script)()
-local function GAMK_fake_script() -- AimAissist.ToggleAimAissist 
-	local script = Instance.new('LocalScript', AimAissist)
+    local dragging
+    local dragInput
+    local dragStart
+    local startPos
 
-	
-end
-coroutine.wrap(GAMK_fake_script)()
-local function MDMYYSQ_fake_script() -- AutoCilcker.ToggleAutoClicker 
-	local script = Instance.new('LocalScript', AutoCilcker)
+    function Lerp(a, b, m)
+        return a + (b - a) * m
+    end
 
-	print("Hello world!")
-	
-end
-coroutine.wrap(MDMYYSQ_fake_script)()
-local function EGRV_fake_script() -- Reach.ToggleReach 
-	local script = Instance.new('LocalScript', Reach)
+    local lastMousePos
+    local lastGoalPos
+    local DRAG_SPEED = DragSpeed
 
-	print("Hello world!")
-	
-end
-coroutine.wrap(EGRV_fake_script)()
-local function QGNI_fake_script() -- Walkspeed.ToggleWalkspeed 
-	local script = Instance.new('LocalScript', Walkspeed)
+    function Update(dt)
+        if not startPos then return end
+        if not dragging and lastGoalPos then
+            gui.Position = UDim2.new(
+                startPos.X.Scale,
+                Lerp(gui.Position.X.Offset, lastGoalPos.X.Offset, dt * DRAG_SPEED),
+                startPos.Y.Scale,
+                Lerp(gui.Position.Y.Offset, lastGoalPos.Y.Offset, dt * DRAG_SPEED)
+            )
+            return
+        end
 
-	print("Hello world!")
-	
-end
-coroutine.wrap(QGNI_fake_script)()
-local function UGJEU_fake_script() -- Velocity.ToggleVelocity 
-	local script = Instance.new('LocalScript', Velocity)
+        local delta = lastMousePos - UserInputService:GetMouseLocation()
+        local xGoal = startPos.X.Offset - delta.X
+        local yGoal = startPos.Y.Offset - delta.Y
+        lastGoalPos = UDim2.new(startPos.X.Scale, xGoal, startPos.Y.Scale, yGoal)
+        gui.Position = UDim2.new(
+            startPos.X.Scale,
+            Lerp(gui.Position.X.Offset, xGoal, dt * DRAG_SPEED),
+            startPos.Y.Scale,
+            Lerp(gui.Position.Y.Offset, yGoal, dt * DRAG_SPEED)
+        )
+    end
 
-	print("Hello world!")
-	
-end
-coroutine.wrap(UGJEU_fake_script)()
-local function YAZCASA_fake_script() -- DTap.ToggleDTap 
-	local script = Instance.new('LocalScript', DTap)
+    gui.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
+            dragStart = input.Position
+            startPos = gui.Position
+            lastMousePos = UserInputService:GetMouseLocation()
 
-	print("Hello world!")
-	
-end
-coroutine.wrap(YAZCASA_fake_script)()
-local function EKAMJJK_fake_script() -- Restless.togglegui 
-	local script = Instance.new('LocalScript', Restless)
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
+                end
+            end)
+        end
+    end)
 
-	game:GetService("UserInputService").InputBegan:Connect(function(input)
-		if input.KeyCode == Enum.KeyCode.LeftShift then
-			local gui = game.Players.LocalPlayer.PlayerGui.Restless
-			gui.Enabled = not gui.Enabled
-		end
-	end)
-end
-coroutine.wrap(EKAMJJK_fake_script)()
-local function GFBROQ_fake_script() -- ToggleVisibleBlatant.ToggleSize 
-	local script = Instance.new('LocalScript', ToggleVisibleBlatant)
+    gui.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            dragInput = input
+        end
+    end)
 
-	ToggleVisibleCombat.MouseButton1Click:Connect(function()
-		local isBlatantVisisble = true
-		isBlatantVisisble = not isBlatantVisisble
-		blatant.Visible = isBlatantVisisble
-		ToggleVisibleBlatant.Text = isBlatantVisisble and "▲" or "▼"
-	end)
-end
-coroutine.wrap(GFBROQ_fake_script)()
-local function CJZBPWI_fake_script() -- blatant.DragGui 
-	local script = Instance.new('LocalScript', blatant)
+    RunService.Heartbeat:Connect(Update)
+end)()
 
-	local UserInputService = game:GetService("UserInputService")
-	local runService = (game:GetService("RunService"));
-	
-	local gui = script.Parent
-	
-	local dragging
-	local dragInput
-	local dragStart
-	local startPos
-	
-	function Lerp(a, b, m)
-		return a + (b - a) * m
-	end;
-	
-	local lastMousePos
-	local lastGoalPos
-	local DRAG_SPEED = (11); -- // The speed of the UI darg.
-	function Update(dt)
-		if not (startPos) then return end;
-		if not (dragging) and (lastGoalPos) then
-			gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, lastGoalPos.X.Offset, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, lastGoalPos.Y.Offset, dt * DRAG_SPEED))
-			return 
-		end;
-	
-		local delta = (lastMousePos - UserInputService:GetMouseLocation())
-		local xGoal = (startPos.X.Offset - delta.X);
-		local yGoal = (startPos.Y.Offset - delta.Y);
-		lastGoalPos = UDim2.new(startPos.X.Scale, xGoal, startPos.Y.Scale, yGoal)
-		gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, xGoal, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, yGoal, dt * DRAG_SPEED))
-	end;
-	
-	gui.InputBegan:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-			dragging = true
-			dragStart = input.Position
-			startPos = gui.Position
-			lastMousePos = UserInputService:GetMouseLocation()
-	
-			input.Changed:Connect(function()
-				if input.UserInputState == Enum.UserInputState.End then
-					dragging = false
-				end
-			end)
-		end
-	end)
-	
-	gui.InputChanged:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-			dragInput = input
-		end
-	end)
-	
-	runService.Heartbeat:Connect(Update)
-end
-coroutine.wrap(CJZBPWI_fake_script)()
+coroutine.wrap(function()
+    local script = Instance.new('LocalScript', ToggleVisibleCombat)
+
+    ToggleVisibleCombat.MouseButton1Click:Connect(function()
+        local isCombatVisible = true
+        isCombatVisible = not isCombatVisible
+        combat.Visible = isCombatVisible
+        ToggleVisibleCombat.Text = isCombatVisible and "▲" or "▼"
+    end)
+end)()
+
+coroutine.wrap(function()
+    local script = Instance.new('LocalScript', combat)
+    local gui = script.Parent
+
+    local dragging = false
+    local dragInput
+    local dragStart
+    local startPos
+
+    function Lerp(a, b, m)
+        return a + (b - a) * m
+    end
+
+    local lastMousePos
+    local lastGoalPos
+    local DRAG_SPEED = DragSpeed
+
+    function Update(dt)
+        if not startPos then return end
+        if not dragging and lastGoalPos then
+            gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, lastGoalPos.X.Offset, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, lastGoalPos.Y.Offset, dt * DRAG_SPEED))
+            return
+        end
+
+        local delta = (lastMousePos - UserInputService:GetMouseLocation())
+        local xGoal = (startPos.X.Offset - delta.X)
+        local yGoal = (startPos.Y.Offset - delta.Y)
+        lastGoalPos = UDim2.new(startPos.X.Scale, xGoal, startPos.Y.Scale, yGoal)
+        gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, xGoal, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, yGoal, dt * DRAG_SPEED))
+    end
+
+    gui.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
+            dragStart = input.Position
+            startPos = gui.Position
+            lastMousePos = UserInputService:GetMouseLocation()
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
+                end
+            end)
+        end
+    end)
+
+    gui.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            dragInput = input
+        end
+    end)
+
+    RunService.Heartbeat:Connect(Update)
+end)()
+
+-- Items Functions
+
+coroutine.wrap(function()
+    local script = Instance.new('LocalScript', AimAissist)
+    local gui = script.Parent
+    local AimAissistEnabled = false
+    
+    gui.MouseButton1Click:Connect(function()
+        AimAissistEnabled = not AimAissistEnabled
+        if AimAissistEnabled then
+            gui.TextColor3 = Color3.fromRGB(255, 255, 255)
+        else
+            gui.TextColor3 = Color3.fromRGB(184, 184, 184)
+        end
+    end)
+end)()
+
+coroutine.wrap(function()
+    local script = Instance.new('LocalScript', AutoCilcker)
+    local gui = script.Parent
+    local AutoClickerEnabled = false
+    
+    AutoCilcker.MouseButton1Click:Connect(function()
+        AutoClickerEnabled = not AutoClickerEnabled
+        if AutoClickerEnabled then
+            gui.TextColor3 = Color3.fromRGB(255, 255, 255)
+        else
+            gui.TextColor3 = Color3.fromRGB(184, 184, 184)
+        end
+    end)
+end)()
+
+coroutine.wrap(function()
+    local script = Instance.new('LocalScript', Reach)
+    local gui = script.Parent
+    local isReachEnabled = false
+
+    local function applyReach()
+        local character = player.Character
+        if character then
+            local tool = character:FindFirstChildOfClass("Tool")
+            if tool and tool:FindFirstChild("Handle") then
+                local handle = tool.Handle
+                if isReachEnabled then
+                    if not handle:FindFirstChild("ReachHitbox") then
+                        local hitbox = Instance.new("SelectionBox", handle)
+                        hitbox.Name = "ReachHitbox"
+                        hitbox.Adornee = handle
+                        hitbox.LineThickness = 0.05
+                        hitbox.SurfaceColor3 = Color3.new(255, 255, 255)
+                        hitbox.SurfaceTransparency = 1
+                    end
+                    handle.Size = Vector3.new(20, 1, 1)
+                else
+                    local hitbox = handle:FindFirstChild("ReachHitbox")
+                    if hitbox then
+                        hitbox:Destroy()
+                    end
+                    handle.Size = Vector3.new(1, 1, 1)
+                end
+            end
+        end
+    end
+
+    gui.MouseButton1Click:Connect(function()
+        isReachEnabled = not isReachEnabled
+        gui.TextColor3 = isReachEnabled and Color3.fromRGB(255, 255, 255) or Color3.fromRGB(184, 184, 184)
+        applyReach()
+    end)
+
+    player.CharacterAdded:Connect(function(character)
+        character.ChildAdded:Connect(function(child)
+            if child:IsA("Tool") then
+                wait(0.1)
+                applyReach()
+            end
+        end)
+        applyReach()
+    end)
+    
+    if player.Character then
+        player.Character:WaitForChild("HumanoidRootPart")
+        applyReach()
+    end
+end)()
+
+coroutine.wrap(function()
+    local script = Instance.new('LocalScript', Walkspeed)
+    Walkspeed.MouseButton1Click:Connect(function()
+        local character = player.Character or player.CharacterAdded:Wait()
+        local humanoid = character:FindFirstChild("Humanoid")
+        
+        if humanoid then
+            if humanoid.WalkSpeed == 16 then
+                Walkspeed.TextColor3 = Color3.fromRGB(255, 255, 255)
+                humanoid.WalkSpeed = 50
+            else
+                Walkspeed.TextColor3 = Color3.fromRGB(184, 184, 184)
+                humanoid.WalkSpeed = 16
+            end
+        end
+    end)
+end)()
+
+coroutine.wrap(function()
+    local script = Instance.new('LocalScript', Velocity)
+    local noKnockback = false
+    Velocity.MouseButton1Click:Connect(function()
+        noKnockback = not noKnockback
+        local character = player.Character or player.CharacterAdded:Wait()
+        
+        if noKnockback then
+            Velocity.TextColor3 = Color3.fromRGB(255, 255, 255)
+            if character:FindFirstChild("BodyVelocity") then
+                character.BodyVelocity:Destroy()
+            end
+            local bodyVel = Instance.new("BodyVelocity", character)
+            bodyVel.Velocity = Vector3.new(0, 0, 0)
+            bodyVel.MaxForce = Vector3.new(0, 0, 0)  -- Setting MaxForce to zero effectively negates any external forces
+        else
+            Velocity.TextColor3 = Color3.fromRGB(184, 184, 184)
+            if character:FindFirstChild("BodyVelocity") then
+                character.BodyVelocity:Destroy()
+            end
+        end
+    end)
+end)()
+
+coroutine.wrap(function()
+    local script = Instance.new('LocalScript', DTap)
+    local DoubleTap = false
+    DTap.MouseButton1Click:Connect(function()
+        DoubleTap = not DoubleTap
+        if DoubleTap then
+            DTap.TextColor3 = Color3.fromRGB(255, 255, 255)
+        else
+            DTap.TextColor3 = Color3.fromRGB(184, 184, 184)
+        end
+    end)
+end)()
+
+-- Main Functions
+
+coroutine.wrap(function()
+    local script = Instance.new('LocalScript', Restless)
+
+    game:GetService("UserInputService").InputBegan:Connect(function(input)
+        if input.KeyCode == Enum.KeyCode.LeftShift then
+            local gui = game.Players.LocalPlayer.PlayerGui.Restless
+            gui.Enabled = not gui.Enabled
+        end
+    end)
+end)()
+
+coroutine.wrap(function()
+    local script = Instance.new('LocalScript', ToggleVisibleBlatant)
+
+    ToggleVisibleBlatant.MouseButton1Click:Connect(function()
+        local isBlatantVisible = true
+        isBlatantVisible = not isBlatantVisible
+        blatant.Visible = isBlatantVisible
+        ToggleVisibleBlatant.Text = isBlatantVisible and "▲" or "▼"
+    end)
+end)()
+
+coroutine.wrap(function()
+    local script = Instance.new('LocalScript', blatant)
+
+    local gui = script.Parent
+
+    local dragging
+    local dragInput
+    local dragStart
+    local startPos
+
+    function Lerp(a, b, m)
+        return a + (b - a) * m
+    end
+
+    local lastMousePos
+    local lastGoalPos
+    local DRAG_SPEED = DragSpeed
+
+    function Update(dt)
+        if not startPos then return end
+        if not dragging and lastGoalPos then
+            gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, lastGoalPos.X.Offset, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, lastGoalPos.Y.Offset, dt * DRAG_SPEED))
+            return
+        end
+
+        local delta = lastMousePos - UserInputService:GetMouseLocation()
+        local xGoal = startPos.X.Offset - delta.X
+        local yGoal = startPos.Y.Offset - delta.Y
+        lastGoalPos = UDim2.new(startPos.X.Scale, xGoal, startPos.Y.Scale, yGoal)
+        gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, xGoal, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, yGoal, dt * DRAG_SPEED))
+    end
+
+    gui.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
+            dragStart = input.Position
+            startPos = gui.Position
+            lastMousePos = UserInputService:GetMouseLocation()
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
+                end
+            end)
+        end
+    end)
+
+    gui.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            dragInput = input
+        end
+    end)
+
+    RunService.Heartbeat:Connect(Update)
+end)()
