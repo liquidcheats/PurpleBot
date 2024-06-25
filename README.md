@@ -11,8 +11,7 @@ A Roblox UI Exploit inspired by Splix, BBot, Inoria
 * [Theme Manager](addons/ThemeManager.lua)&nbsp;&nbsp;|&nbsp;&nbsp;[Save Manager](addons/SaveManager.lua) 
 
 ## Interface Preview
-> note this an outdated picture
-<img src="https://i.imgur.com/wb6q98H.jpeg" />
+<img src="" />
 
 ## Contributors
 - atzlazyblue: Main developer.
