@@ -1,4 +1,4 @@
-# solstic.win
+# PURPLEBOT
 A Roblox UI Exploit inspired by Splix, BBot, Inoria
 
 ###### Example Script:
